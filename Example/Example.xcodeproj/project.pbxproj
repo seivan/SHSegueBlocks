@@ -18,7 +18,6 @@
 		22D3AEC21742D9B8000AB469 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D3AEC11742D9B8000AB469 /* Default-568h@2x.png */; };
 		22D3AEC51742D9B8000AB469 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D3AEC31742D9B8000AB469 /* MainStoryboard.storyboard */; };
 		22D3AEC81742D9B8000AB469 /* SHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D3AEC71742D9B8000AB469 /* SHViewController.m */; };
-		22D3AED01742D9F9000AB469 /* UIViewController+SHSegueBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D3AECF1742D9F9000AB469 /* UIViewController+SHSegueBlock.m */; };
 		22D3AED31742E928000AB469 /* SHSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D3AED21742E928000AB469 /* SHSecondViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -39,8 +38,6 @@
 		22D3AEC41742D9B8000AB469 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		22D3AEC61742D9B8000AB469 /* SHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHViewController.h; sourceTree = "<group>"; };
 		22D3AEC71742D9B8000AB469 /* SHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHViewController.m; sourceTree = "<group>"; };
-		22D3AECE1742D9F9000AB469 /* UIViewController+SHSegueBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SHSegueBlock.h"; sourceTree = "<group>"; };
-		22D3AECF1742D9F9000AB469 /* UIViewController+SHSegueBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SHSegueBlock.m"; sourceTree = "<group>"; };
 		22D3AED11742E928000AB469 /* SHSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSecondViewController.h; sourceTree = "<group>"; };
 		22D3AED21742E928000AB469 /* SHSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,8 +88,6 @@
 			children = (
 				22D3AEBA1742D9B8000AB469 /* SHAppDelegate.h */,
 				22D3AEBB1742D9B8000AB469 /* SHAppDelegate.m */,
-				22D3AECE1742D9F9000AB469 /* UIViewController+SHSegueBlock.h */,
-				22D3AECF1742D9F9000AB469 /* UIViewController+SHSegueBlock.m */,
 				22D3AEC31742D9B8000AB469 /* MainStoryboard.storyboard */,
 				22D3AEC61742D9B8000AB469 /* SHViewController.h */,
 				22D3AEC71742D9B8000AB469 /* SHViewController.m */,
@@ -187,7 +182,6 @@
 				22D3AEB81742D9B8000AB469 /* main.m in Sources */,
 				22D3AEBC1742D9B8000AB469 /* SHAppDelegate.m in Sources */,
 				22D3AEC81742D9B8000AB469 /* SHViewController.m in Sources */,
-				22D3AED01742D9F9000AB469 /* UIViewController+SHSegueBlock.m in Sources */,
 				22D3AED31742E928000AB469 /* SHSecondViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
