@@ -32,34 +32,34 @@
 }
 
 -(IBAction)unwinder:(UIStoryboardSegue *)theSegue;{
-    NSLog(@"UNWINDER:  ");
+    NSLog(@"SHViewController UNWINDER:  ");
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender; {
-  NSLog(@"prepareForSegue ");
+  NSLog(@"SHViewController prepareForSegue ");
 }
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender NS_AVAILABLE_IOS(6_0); {
-   NSLog(@"shouldPerformSegueWithIdentifier");
+   NSLog(@"SHViewController shouldPerformSegueWithIdentifier");
   return YES;
   
 }// Invoked immediately prior to initiating a segue. Return NO to prevent the segue from firing. The default implementation returns YES. This method is not invoked when -performSegueWithIdentifier:sender: is used.
 
 // View controllers will receive this message during segue unwinding. The default implementation returns the result of -respondsToSelector: - controllers can override this to perform any ancillary checks, if necessary.
 - (BOOL)canPerformUnwindSegueAction:(SEL)action fromViewController:(UIViewController *)fromViewController withSender:(id)sender NS_AVAILABLE_IOS(6_0); {
-     NSLog(@"canPerformUnwindSegueAction %@", NSStringFromSelector(action));
+     NSLog(@"SHViewController canPerformUnwindSegueAction %@", NSStringFromSelector(action));
   return YES;
 }
 
 // Custom containers should override this method and search their children for an action handler (using -canPerformUnwindSegueAction:fromViewController:sender:). If a handler is found, the controller should return it. Otherwise, the result of invoking super's implementation should be returned.
-//- (UIViewController *)viewControllerForUnwindSegueAction:(SEL)action fromViewController:(UIViewController *)fromViewController withSender:(id)sender NS_AVAILABLE_IOS(6_0); {
-//       NSLog(@"viewControllerForUnwindSegueAction %@ ", NSStringFromSelector(action));
-//}
-//
-//// Custom container view controllers should override this method and return segue instances that will perform the navigation portion of segue unwinding.
-//- (UIStoryboardSegue *)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier NS_AVAILABLE_IOS(6_0); {
-//         NSLog(@"segueForUnwindingToViewController %@", identifier);
-//}
-//
+- (UIViewController *)viewControllerForUnwindSegueAction:(SEL)action fromViewController:(UIViewController *)fromViewController withSender:(id)sender NS_AVAILABLE_IOS(6_0); {
+       NSLog(@"viewControllerForUnwindSegueAction %@ ", NSStringFromSelector(action));
+}
+
+// Custom container view controllers should override this method and return segue instances that will perform the navigation portion of segue unwinding.
+- (UIStoryboardSegue *)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier NS_AVAILABLE_IOS(6_0); {
+         NSLog(@"segueForUnwindingToViewController %@", identifier);
+}
+
 
 
 
