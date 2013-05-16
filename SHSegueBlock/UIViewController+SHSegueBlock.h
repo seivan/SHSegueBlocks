@@ -13,6 +13,7 @@ typedef void(^SHPrepareForSegue)(UIStoryboardSegue *theSegue);
 typedef void(^SHPrepareForSegueWithUserInfo)(NSMutableDictionary * userInfo);
 
 
+
 @interface UIViewController (SHSegueBlock)
 #pragma mark -
 #pragma mark Properties
@@ -22,16 +23,15 @@ typedef void(^SHPrepareForSegueWithUserInfo)(NSMutableDictionary * userInfo);
 #pragma mark -
 #pragma mark Segue Performers
 
-#pragma mark -
-#pragma mark Awesome
 
--(void)SH_performSegueWithIdentifier:(NSString *)identifier
+-(void)SH_performSegueWithIdentifier:(NSString *)theIdentifier
            andPrepareForSegueBlock:(SHPrepareForSegue)theBlock;
 
+-(BOOL)SH_handlesBlockForSegue:(UIStoryboardSegue *)theSegue;
 #pragma mark -
-#pragma mark For losers
+#pragma mark Don't Use
 //I don't recomend using this - it's stupid. If you need your destination controller to have certain properties, use a fucking protocol.
--(void)SH_performSegueWithIdentifier:(NSString *)identifier
+-(void)SH_performSegueWithIdentifier:(NSString *)theIdentifier
               withUserInfo:(NSDictionary *)theUserInfo;
 
 

@@ -32,6 +32,9 @@
   NSLog(@"Sent here by identifier; %@", self.name);
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender; {
+  if([self ])
+}
 
 
 @end

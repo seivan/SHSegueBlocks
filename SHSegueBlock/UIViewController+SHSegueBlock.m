@@ -96,23 +96,35 @@
 #pragma mark -
 #pragma mark Segue Performers
 
-#pragma mark -
-#pragma mark Awesome
 
-- (void)SH_performSegueWithIdentifier:(NSString *)identifier
+-(void)SH_performSegueWithIdentifier:(NSString *)theIdentifier
            andPrepareForSegueBlock:(SHPrepareForSegue)theBlock; {
   NSMutableDictionary * blocks = [self.mapBlocks objectForKey:self];
   if(blocks == nil) blocks = @{}.mutableCopy;
-  if(theBlock) blocks[identifier] = [theBlock copy];
+  if(theBlock) blocks[theIdentifier] = [theBlock copy];
   [self.mapBlocks setObject:blocks forKey:self];
-  [self performSegueWithIdentifier:identifier sender:self];
+  [self performSegueWithIdentifier:theIdentifier sender:self];
 }
 
+
+-(BOOL)SH_handlesBlockForSegue:(UIStoryboardSegue *)theSegue; {
+  BOOL handlesBlockForSegue = NO;
+  NSMutableDictionary * blocks = [SHSegueBlockManager.sharedManager.mapBlocks objectForKey:self];
+  SHPrepareForSegue block = blocks[theSegue.identifier];
+  if(block) {
+    handlesBlockForSegue = YES;
+    block(theSegue);
+  }
+  return handlesBlockForSegue;
+
+}
+
+
 #pragma mark -
-#pragma mark For losers
-- (void)SH_performSegueWithIdentifier:(NSString *)identifier
+#pragma mark Don't Use
+-(void)SH_performSegueWithIdentifier:(NSString *)theIdentifier
                          withUserInfo:(NSDictionary *)theUserInfo; {
-  [self SH_performSegueWithIdentifier:identifier andPrepareForSegueBlock:^(UIStoryboardSegue *theSegue) {
+  [self SH_performSegueWithIdentifier:theIdentifier andPrepareForSegueBlock:^(UIStoryboardSegue *theSegue) {
     UIViewController * destinationViewController = theSegue.destinationViewController;
     destinationViewController.SH_userInfo = [theUserInfo mutableCopy];
   }];
