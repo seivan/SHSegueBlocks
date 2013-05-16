@@ -6,10 +6,38 @@
 //  Copyright (c) 2013 Seivan Heidari. All rights reserved.
 //
 
-typedef void(^SHSegueBlockPrepareForSegue)(UIStoryboardSegue *theSegue);
-//typedef void(^SHOmniAuthAccountsListHandler)(NSArray * accounts, SHOmniAuthAccountPickerHandler pickAccountBlock);
+#pragma mark -
+#pragma mark Block Defs
+
+typedef void(^SHPrepareForSegue)(UIStoryboardSegue *theSegue);
+typedef void(^SHPrepareForSegueDestinationViewController)(UIViewController * theDestinationViewController);
+typedef void(^SHPrepareForSegueWithUserInfo)(NSMutableDictionary * theUserInfo);
+
+
 
 @interface UIViewController (SHSegueBlock)
-- (void)SH_performSegueWithIdentifier:(NSString *)identifier
-           andPrepareForSegueBlock:(SHSegueBlockPrepareForSegue)theBlock;
+#pragma mark -
+#pragma mark Properties
+
+@property(nonatomic,strong) NSMutableDictionary * SH_userInfo;
+
+#pragma mark -
+#pragma mark Segue Performers
+
+
+-(void)SH_performSegueWithIdentifier:(NSString *)theIdentifier
+           andPrepareForSegueBlock:(SHPrepareForSegue)theBlock;
+
+-(void)SH_performSegueWithIdentifier:(NSString *)theIdentifier
+             andDestionationViewController:(SHPrepareForSegueDestinationViewController)theBlock;
+
+
+-(BOOL)SH_handlesBlockForSegue:(UIStoryboardSegue *)theSegue;
+#pragma mark -
+#pragma mark Don't Use
+//I don't recomend using this - it's stupid. If you need your destination controller to have certain properties, use a fucking protocol.
+-(void)SH_performSegueWithIdentifier:(NSString *)theIdentifier
+              withUserInfo:(NSDictionary *)theUserInfo;
+
+
 @end
