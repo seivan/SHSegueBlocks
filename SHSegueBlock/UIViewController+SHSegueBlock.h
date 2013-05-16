@@ -10,7 +10,8 @@
 #pragma mark Block Defs
 
 typedef void(^SHPrepareForSegue)(UIStoryboardSegue *theSegue);
-typedef void(^SHPrepareForSegueWithUserInfo)(NSMutableDictionary * userInfo);
+typedef void(^SHPrepareForSegueDestinationViewController)(UIViewController * theDestinationViewController);
+typedef void(^SHPrepareForSegueWithUserInfo)(NSMutableDictionary * theUserInfo);
 
 
 
@@ -26,6 +27,10 @@ typedef void(^SHPrepareForSegueWithUserInfo)(NSMutableDictionary * userInfo);
 
 -(void)SH_performSegueWithIdentifier:(NSString *)theIdentifier
            andPrepareForSegueBlock:(SHPrepareForSegue)theBlock;
+
+-(void)SH_performSegueWithIdentifier:(NSString *)theIdentifier
+             andDestionationViewController:(SHPrepareForSegueDestinationViewController)theBlock;
+
 
 -(BOOL)SH_handlesBlockForSegue:(UIStoryboardSegue *)theSegue;
 #pragma mark -
