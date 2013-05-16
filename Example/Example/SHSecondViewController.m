@@ -6,16 +6,23 @@
 //  Copyright (c) 2013 Seivan Heidari. All rights reserved.
 //
 
+#import "UIViewController+SHSegueBlock.h"
 #import "SHSecondViewController.h"
 
 @interface SHSecondViewController ()
 -(IBAction)tapProgUnwind:(id)sender;
+
 @end
 
 @implementation SHSecondViewController
+@synthesize name;
 
 -(IBAction)tapProgUnwind:(id)sender; {
-  [self performSegueWithIdentifier:@"unwinder" sender:self];
+  //[self performSegueWithIdentifier:@"unwinder" sender:self];
+  [self SH_performSegueWithIdentifier:@"unwinder" andPrepareForSegueBlock:^(UIStoryboardSegue *theSegue) {
+    id<SHExampleProtocol> destionationController =   theSegue.destinationViewController;
+    destionationController.name = theSegue.identifier;
+  }];
 }
 
 
@@ -26,11 +33,12 @@
 
 -(void)viewDidAppear:(BOOL)animated; {
   [super viewDidAppear:animated];
+  NSLog(@"Sent here by identifier; %@", self.name);
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender; {
-  NSLog(@"SHSecondViewController prepareForSegue %@ - %@", sender, segue);
-}
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender; {
+//  NSLog(@"SHSecondViewController prepareForSegue %@ - %@", sender, segue);
+//}
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender NS_AVAILABLE_IOS(6_0); {
   NSLog(@"SHSecondViewController shouldPerformSegueWithIdentifier %@ - %@", sender, identifier);
   return YES;

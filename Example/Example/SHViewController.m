@@ -6,25 +6,34 @@
 //  Copyright (c) 2013 Seivan Heidari. All rights reserved.
 //
 
+#import "UIViewController+SHSegueBlock.h"
+
+
+
 #import "SHViewController.h"
 @interface SHViewController ()
 -(IBAction)unwinder:(UIStoryboardSegue *)theSegue;
 @end
 
 @implementation SHViewController
-
+@synthesize name;
 -(void)viewDidLoad;{
   [super viewDidLoad];
   
 }
 
 -(void)viewDidAppear:(BOOL)animated; {
+  if(name) NSLog(@"Sent here by identifier; %@", self.name);
   [super viewDidAppear:animated];
   double delayInSeconds = 2.0;
   dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
   dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
     if (self.navigationController) {
-      [self performSegueWithIdentifier:@"push" sender:self];
+      //[self performSegueWithIdentifier:@"push" sender:self];
+      [self SH_performSegueWithIdentifier:@"push" andPrepareForSegueBlock:^(UIStoryboardSegue *theSegue) {
+        id<SHExampleProtocol> destionationController =   theSegue.destinationViewController;
+        destionationController.name = theSegue.identifier;
+      }];
     }
 
   });
@@ -34,9 +43,10 @@
     NSLog(@"SHViewController UNWINDER:  ");
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender; {
-  NSLog(@"SHViewController prepareForSegue ");
-}
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender; {
+//  NSLog(@"SHViewController prepareForSegue ");
+//}
+
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender NS_AVAILABLE_IOS(6_0); {
    NSLog(@"SHViewController shouldPerformSegueWithIdentifier");
   return YES;

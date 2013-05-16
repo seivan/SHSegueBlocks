@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Seivan Heidari. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
+#import "SHExampleProtocol.h"
 @interface SHSecondViewController : UIViewController
+<SHExampleProtocol>
 
 @end
