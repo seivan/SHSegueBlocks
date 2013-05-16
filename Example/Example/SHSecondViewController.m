@@ -33,7 +33,15 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender; {
-  if([self ])
+  UIViewController * destionationVc = segue.destinationViewController;
+  destionationVc.SH_userInfo = nil;
+
+  if([self SH_handlesBlockForSegue:segue])
+    NSLog(@"Performed segueue programatically user info: %@", destionationVc.SH_userInfo);
+  else
+    NSLog(@"Performed segueue via IB");
+  
+  
 }
 
 
