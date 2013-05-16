@@ -74,6 +74,24 @@ You can directly set a userInfo (mutable) dictionary directly on the segueu sele
 
 ```
 
+In the destinationViewController
+
+```
+self.myDate = self.SH_userInfo[@"date"];
+```
+
+or
+
+```
+  [self SH_performSegueWithIdentifier:@"push" 
+        andDestionationViewController:^(UIViewController * theDestinationViewController) {
+
+    theDestinationViewController.SH_userInfo = myDictionary
+
+  }];
+
+``` 
+
 Existing Codebase 
 -----------------
 
