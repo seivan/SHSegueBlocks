@@ -1,0 +1,14 @@
+PODS:
+  - SHSegueBlock (0.1.0)
+
+DEPENDENCIES:
+  - SHSegueBlock (from `../`)
+
+EXTERNAL SOURCES:
+  SHSegueBlock:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SHSegueBlock: 9bacde3b3483eb47ab6548e5a50ded656d928019
+
+COCOAPODS: 0.19.1
