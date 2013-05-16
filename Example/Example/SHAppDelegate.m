@@ -13,7 +13,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    return YES;
+  UINavigationController * navCon = (UINavigationController * )self.window.rootViewController;
+  [navCon.topViewController SH_memoryDebugger];
+  return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
