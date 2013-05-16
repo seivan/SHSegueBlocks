@@ -11,7 +11,7 @@ typedef void(^SHPrepareForSegueWithUserInfo)(NSMutableDictionary * userInfo);
 //typedef void(^SHOmniAuthAccountsListHandler)(NSArray * accounts, SHOmniAuthAccountPickerHandler pickAccountBlock);
 
 @interface UIViewController (SHSegueBlock)
-@property(nonatomic,strong) NSMutableDictionary * userInfo;
+@property(nonatomic,strong) NSMutableDictionary * SH_userInfo;
 
 -(void)SH_performSegueWithIdentifier:(NSString *)identifier
            andPrepareForSegueBlock:(SHPrepareForSegue)theBlock;

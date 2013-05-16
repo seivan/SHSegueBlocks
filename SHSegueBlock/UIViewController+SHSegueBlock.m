@@ -51,16 +51,16 @@
 
 @implementation UIViewController (SHSegueBlock)
 
--(NSMutableDictionary *)userInfo; {
+-(NSMutableDictionary *)SH_userInfo; {
   NSMutableDictionary * userInfo = [self.mapUserInfo objectForKey:self];
   if(userInfo == nil){
     userInfo = @{}.mutableCopy;
-    [self setUserInfo:userInfo];
+    self.SH_userInfo = userInfo;
   }
   return userInfo;
 }
 
--(void)setUserInfo:(NSMutableDictionary *)userInfo; {
+-(void)setSH_userInfo:(NSMutableDictionary *)userInfo; {
   if(userInfo)
     [self.mapUserInfo setObject:userInfo forKey:self];
   else
@@ -79,7 +79,7 @@
                          withUserInfo:(NSDictionary *)theUserInfo; {
   [self SH_performSegueWithIdentifier:identifier andPrepareForSegueBlock:^(UIStoryboardSegue *theSegue) {
     UIViewController * destinationViewController = theSegue.destinationViewController;
-    destinationViewController.userInfo = [theUserInfo mutableCopy];
+    destinationViewController.SH_userInfo = [theUserInfo mutableCopy];
   }];
 }
 

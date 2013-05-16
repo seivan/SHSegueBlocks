@@ -22,8 +22,8 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated; {
-  NSLog(@"%@",self.userInfo);
-  if(self.userInfo[@"name"]) NSLog(@"Sent here by unwinding and using userInfo; %@", self.userInfo[@"name"]);
+  NSLog(@"%@",self.SH_userInfo);
+  if(self.SH_userInfo[@"name"]) NSLog(@"Sent here by unwinding and using userInfo; %@", self.SH_userInfo[@"name"]);
   [super viewDidAppear:animated];
   double delayInSeconds = 2.0;
   dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
