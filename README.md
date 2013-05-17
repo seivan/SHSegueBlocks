@@ -31,7 +31,7 @@ Setup
 Put this either in specific controllers or your project prefix file
 
 ```objective-c
-#import 'SHSegueBlock.h'
+#import 'UIViewController+SHSegueBlock.h'
 ```
 
 
