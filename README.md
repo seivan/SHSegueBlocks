@@ -126,15 +126,15 @@ Replacing
 ---------
 
 ```objective-c
-[self performSegueWithIdentifier:@"theIdentifier" sender:nil];
+[self performSegueWithIdentifier:@"theIdentifier" sender:@"lolz"];
 ```
 
-and then implementing the callback (notice how you need a property to pass stuff over)
+and then implementing the callback
 
 ```objective-c
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender; {
   UIViewController * destinationViewController = segue.destinationViewController;
-  destionationViewController.whateverPropety = self.anotherProperty
+  destionationViewController.whateverPropety = sender;
 }
 ```
 
