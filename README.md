@@ -19,7 +19,7 @@ The blocks are gone as soon the segue has finished and userInfo content are gone
 Installation
 ------------
 
-```
+```ruby
 pod 'SHSegueBlock'
 ```
 
@@ -30,7 +30,7 @@ Setup
 
 Put this either in specific controllers or your project prefix file
 
-```
+```objective-c
 #import 'SHSegueBlock.h'
 ```
 
@@ -40,7 +40,7 @@ Usage
 
 With SHSegueBlock you do it all in one place, like so:
 
-```
+```objective-c
   [self SH_performSegueWithIdentifier:@"push" 
         andDestionationViewController:^(UIViewController * theDestinationViewController) {
 
@@ -52,7 +52,7 @@ With SHSegueBlock you do it all in one place, like so:
 
 or if you want access to the full segue object
 
-```
+```objective-c
   [self SH_performSegueWithIdentifier:@"push" 
               andPrepareForSegueBlock:^(UIStoryboardSegue *theSegue) {
 
@@ -69,20 +69,20 @@ Bonus - SH_userInfo property
 
 You can directly set a userInfo (mutable) dictionary directly on the segueu selector for the destination controller
 
-```
+```objective-c
 [self SH_performSegueWithIdentifier:@"unwinder" withUserInfo:@{@"date" : [NSDate date]}];
 
 ```
 
 In the destinationViewController
 
-```
+```objective-c
 self.myDate = self.SH_userInfo[@"date"];
 ```
 
 or
 
-```
+```objective-c
   [self SH_performSegueWithIdentifier:@"push" 
         andDestionationViewController:^(UIViewController * theDestinationViewController) {
 
@@ -97,19 +97,19 @@ Existing Codebase
 
 If you already have  
 
-```
+```objective-c
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 ``` 
 
 implemented and used within your code base you can use the block handler
 
-```
+```objective-c
 -(BOOL)SH_handlesBlockForSegue:(UIStoryboardSegue *)theSegue;
 ```
 
 Like this 
 
-```
+```objective-c
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender; {
   UIViewController * destionationVc = segue.destinationViewController;
   destionationVc.SH_userInfo = nil;
@@ -125,13 +125,13 @@ That will check if there is block **and** if there is - execute it.
 Replacing
 ---------
 
-```
+```objective-c
 [self performSegueWithIdentifier:@"theIdentifier" sender:nil];
 ```
 
 and then implementing the callback (notice how you need a property to pass stuff over)
 
-```
+```objective-c
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender; {
   UIViewController * destinationViewController = segue.destinationViewController;
   destionationViewController.whateverPropety = self.anotherProperty
