@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
                     * Weak referenced blocks.
                     * No swizzling or hacks. 
                     * Name-scoped selectors.
-                    * Implements userInfo without a bullshit hack.
+                    * Implements userInfo on controllers without a bullshit hack.
                     * Works with existing codebase that uses old fashioned segues. 
 
                    DESC
@@ -30,5 +30,5 @@ Pod::Spec.new do |s|
 
   s.source_files = "#{name}/**/*.{h,m}"
   s.requires_arc = true
-  s.dependency 'SHObjectUserInfo', '~> 1.0'
+  s.dependency 'SHObjectUserInfo', '~> 1.0.0'
 end
