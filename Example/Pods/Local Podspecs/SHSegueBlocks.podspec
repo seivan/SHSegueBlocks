@@ -30,5 +30,5 @@ Pod::Spec.new do |s|
 
   s.source_files = "#{name}/**/*.{h,m}"
   s.requires_arc = true
-  spec.dependency 'SHObjectUserInfo', '~> 1.0'
+  s.dependency 'SHObjectUserInfo', '~> 1.0'
 end
