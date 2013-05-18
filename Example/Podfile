@@ -1,2 +1,2 @@
 platform :ios, '5.0' 
-pod 'SHSegueBlock', :path => '../'
+pod 'SHSegueBlocks', :path => '../'
