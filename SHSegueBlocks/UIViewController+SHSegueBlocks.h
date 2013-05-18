@@ -15,7 +15,7 @@ typedef void(^SHPrepareForSegueWithUserInfo)(NSMutableDictionary * theUserInfo);
 
 
 
-@interface UIViewController (SHSegueBlock)
+@interface UIViewController (SHSegueBlocks)
 #pragma mark -
 #pragma mark Properties
 

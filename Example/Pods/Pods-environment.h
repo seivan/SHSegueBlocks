@@ -6,9 +6,15 @@
 // project.
 
 
-// SHSegueBlock
-#define COCOAPODS_POD_AVAILABLE_SHSegueBlock
-#define COCOAPODS_VERSION_MAJOR_SHSegueBlock 0
-#define COCOAPODS_VERSION_MINOR_SHSegueBlock 1
-#define COCOAPODS_VERSION_PATCH_SHSegueBlock 0
+// SHObjectUserInfo
+#define COCOAPODS_POD_AVAILABLE_SHObjectUserInfo
+#define COCOAPODS_VERSION_MAJOR_SHObjectUserInfo 1
+#define COCOAPODS_VERSION_MINOR_SHObjectUserInfo 0
+#define COCOAPODS_VERSION_PATCH_SHObjectUserInfo 0
+
+// SHSegueBlocks
+#define COCOAPODS_POD_AVAILABLE_SHSegueBlocks
+#define COCOAPODS_VERSION_MAJOR_SHSegueBlocks 1
+#define COCOAPODS_VERSION_MINOR_SHSegueBlocks 0
+#define COCOAPODS_VERSION_PATCH_SHSegueBlocks 0
 

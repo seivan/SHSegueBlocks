@@ -6,12 +6,12 @@
 //  Copyright (c) 2013 Seivan Heidari. All rights reserved.
 //
 
-#import "UIViewController+SHSegueBlock.h"
+#import "UIViewController+SHSegueBlocks.h"
+#import "SHObjectUserInfo.h"
 
-@interface SHSegueBlockManager : NSObject
+@interface SHSegueBlocksManager : NSObject
 
 @property(nonatomic,strong) NSMapTable * mapBlocks;
-@property(nonatomic,strong) NSMapTable * mapUserInfo;
 
 +(instancetype)sharedManager;
 
@@ -19,14 +19,14 @@
 @end
 
 
-@implementation SHSegueBlockManager
+@implementation SHSegueBlocksManager
 #pragma mark -
 #pragma mark Init & Dealloc
 -(instancetype)init; {
   self = [super init];
   if (self) {
     self.mapBlocks      = [NSMapTable weakToWeakObjectsMapTable];
-    self.mapUserInfo    = [NSMapTable weakToStrongObjectsMapTable];
+
 //    [self SH_memoryDebugger];
   }
   
@@ -34,10 +34,10 @@
 }
 
 +(instancetype)sharedManager; {
-  static SHSegueBlockManager *_sharedInstance;
+  static SHSegueBlocksManager *_sharedInstance;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    _sharedInstance = [[SHSegueBlockManager alloc] init];
+    _sharedInstance = [[SHSegueBlocksManager alloc] init];
     
   });
   
@@ -51,7 +51,7 @@
   double delayInSeconds = 5.0;
   dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
   dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-    NSLog(@"USERINFO %@",self.mapUserInfo);
+
     NSLog(@"BLOCK %@",self.mapBlocks);
     [self SH_memoryDebugger];
   });
@@ -62,36 +62,11 @@
 @interface UIViewController ()
 
 @property(nonatomic,readonly) NSMapTable * mapBlocks;
-@property(nonatomic,readonly) NSMapTable * mapUserInfo;
+
 
 @end
 
 @implementation UIViewController (SHSegueBlock)
-
-#pragma mark -
-#pragma mark Properties
-
-#pragma mark -
-#pragma mark Getters
-
--(NSMutableDictionary *)SH_userInfo; {
-  NSMutableDictionary * userInfo = [self.mapUserInfo objectForKey:self];
-  if(userInfo == nil){
-    userInfo = @{}.mutableCopy;
-    self.SH_userInfo = userInfo;
-  }
-  return userInfo;
-}
-
-#pragma mark -
-#pragma mark Setters
-
--(void)setSH_userInfo:(NSMutableDictionary *)userInfo; {
-  if(userInfo)
-    [self.mapUserInfo setObject:userInfo forKey:self];
-  else
-    [self.mapUserInfo removeObjectForKey:self];
-}
 
 #pragma mark -
 #pragma mark Segue Performers
@@ -117,7 +92,7 @@
 
 -(BOOL)SH_handlesBlockForSegue:(UIStoryboardSegue *)theSegue; {
   BOOL handlesBlockForSegue = NO;
-  NSMutableDictionary * blocks = [SHSegueBlockManager.sharedManager.mapBlocks objectForKey:self];
+  NSMutableDictionary * blocks = [SHSegueBlocksManager.sharedManager.mapBlocks objectForKey:self];
   SHPrepareForSegue block = blocks[theSegue.identifier];
   if(block) {
     handlesBlockForSegue = YES;
@@ -154,19 +129,16 @@
 #pragma mark -
 #pragma mark Getters
 -(NSMapTable *)mapBlocks; {
-  return SHSegueBlockManager.sharedManager.mapBlocks;
-}
--(NSMapTable *)mapUserInfo; {
-  return SHSegueBlockManager.sharedManager.mapUserInfo;
+  return SHSegueBlocksManager.sharedManager.mapBlocks;
 }
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender; {
-  NSMutableDictionary * blocks = [SHSegueBlockManager.sharedManager.mapBlocks objectForKey:self];
+  NSMutableDictionary * blocks = [SHSegueBlocksManager.sharedManager.mapBlocks objectForKey:self];
   SHPrepareForSegue block = blocks[segue.identifier];
   if(block) block(segue);
 //Don't need to do this as we have weak2weak references  [blocks removeObjectForKey:segue.identifier];
-  [SHSegueBlockManager.sharedManager.mapBlocks setObject:blocks forKey:self];
+  [SHSegueBlocksManager.sharedManager.mapBlocks setObject:blocks forKey:self];
 
 }
 #pragma clang diagnostic pop
