@@ -67,7 +67,7 @@ or if you want access to the full segue object
 ```
 
 
-Bonus - SH_userInfo property from the pod [SHUserInfo](http://www.github.com/seivan/SHUserInfo)
+Bonus - SH_userInfo property from the pod [SHOBjectUserInfo](http://www.github.com/seivan/SHOBjectUserInfo)
 ------ 
 
 You can directly set a userInfo (mutable) dictionary directly on the segueu selector for the destination controller
