@@ -2,8 +2,11 @@ Pod::Spec.new do |s|
   name    = "SHSegueBlocks"
   url     = "https://github.com/seivan/#{name}"
   git_url = "#{url}.git"
+  version      = "1.1.1"
+  source_files = "#{name}/**/*.{h,m}"
+
   s.name         = name
-  s.version      = "1.1.0"
+  s.version      = version
   s.summary      = "Segue Blocks and userInfo without swizzling."
   s.description  = <<-DESC
                     Do segueus with blocks without any swizzling or leaks.
@@ -20,15 +23,15 @@ Pod::Spec.new do |s|
 
                    DESC
   s.homepage     = url
-  s.license      = {:type => 'MIT' } 
+  s.license      = 'MIT'
   s.author       = { "Seivan Heidari" => "seivan.heidari@icloud.com" }
   
-  s.source       = { :git => git_url, :tag => s.version.to_s }
+  s.source       = { :git => git_url, :tag => version }
   
 
   s.platform  = :ios, "6.0"
 
-  s.source_files = "#{name}/**/*.{h,m}"
+  s.source_files = source_files
   s.requires_arc = true
   s.dependency 'SHObjectUserInfo', '~> 1.0.0'
 end

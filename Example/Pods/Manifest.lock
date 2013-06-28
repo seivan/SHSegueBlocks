@@ -1,6 +1,6 @@
 PODS:
   - SHObjectUserInfo (1.0.0)
-  - SHSegueBlocks (1.1.0):
+  - SHSegueBlocks (1.1.1):
     - SHObjectUserInfo (~> 1.0.0)
 
 DEPENDENCIES:
@@ -12,6 +12,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   SHObjectUserInfo: 46ec0f0d5131abff9fabdba55f4a3d012de3c646
-  SHSegueBlocks: c25c880e811bc6d86658857c521557d2bafc83b4
+  SHSegueBlocks: 6bcadca3c10a916a0047b7123fa035e38f40cf34
 
 COCOAPODS: 0.20.2
