@@ -31,11 +31,11 @@ Setup
 Put this either in specific controllers or your project prefix file
 
 ```objective-c
-#import 'UIViewController+SHSegueBlocks.h'
+#import "UIViewController+SHSegueBlocks.h"
 ```
 or
 ```objective-c
-#import 'SHSegueBlocks.h'
+#import "SHSegueBlocks.h"
 ```
 
 Usage
