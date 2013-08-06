@@ -28,8 +28,8 @@
 // SHSegueBlocks
 #define COCOAPODS_POD_AVAILABLE_SHSegueBlocks
 #define COCOAPODS_VERSION_MAJOR_SHSegueBlocks 1
-#define COCOAPODS_VERSION_MINOR_SHSegueBlocks 1
-#define COCOAPODS_VERSION_PATCH_SHSegueBlocks 1
+#define COCOAPODS_VERSION_MINOR_SHSegueBlocks 2
+#define COCOAPODS_VERSION_PATCH_SHSegueBlocks 0
 
 // SHTestCaseAdditions
 #define COCOAPODS_POD_AVAILABLE_SHTestCaseAdditions
