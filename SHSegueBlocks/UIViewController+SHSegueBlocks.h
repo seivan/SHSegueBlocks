@@ -18,9 +18,9 @@ typedef void(^SHPrepareForSegueWithUserInfo)(NSMutableDictionary * theUserInfo);
 @interface UIViewController (SHSegueBlocks)
 
 
-#pragma mark - Properties
-
-@property(nonatomic,strong) NSMutableDictionary * SH_userInfo;
+//#pragma mark - Properties
+//
+//@property(nonatomic,strong) NSMutableDictionary * SH_userInfo;
 
 
 #pragma mark - Segue Performers

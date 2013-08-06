@@ -77,6 +77,10 @@ Bonus - [SH_userInfo from SHObjectUserInfo](http://www.github.com/seivan/SHOBjec
 You can directly set a userInfo (mutable) dictionary directly on the segueu selector for the destination controller
 
 ```objective-c
+  #import "SHObjectUserInfo.h"
+```
+
+```objective-c
 [self SH_performSegueWithIdentifier:@"unwinder" withUserInfo:@{@"date" : [NSDate date]}];
 
 ```
