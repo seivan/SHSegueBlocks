@@ -1,0 +1,14 @@
+PODS:
+  - SHFastEnumerationProtocols (1.0.0)
+
+DEPENDENCIES:
+  - SHFastEnumerationProtocols (from `../`)
+
+EXTERNAL SOURCES:
+  SHFastEnumerationProtocols:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SHFastEnumerationProtocols: 0b9631ec8a8f6d49122d5f447dfb4404315c510a
+
+COCOAPODS: 0.22.2
