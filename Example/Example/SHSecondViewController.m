@@ -9,18 +9,16 @@
 #import "SHSecondViewController.h"
 
 @interface SHSecondViewController ()
--(IBAction)tapProgUnwind:(id)sender;
 
 @end
 
 @implementation SHSecondViewController
 @synthesize name;
 
--(IBAction)tapProgUnwind:(id)sender; {
-  //[self performSegueWithIdentifier:@"unwinder" sender:self];
-  [self SH_performSegueWithIdentifier:@"unwinder" withUserInfo:@{@"date" : [NSDate date]}];
-}
 
+-(IBAction)performSegue:(id)sender; {
+  [self SH_performSegueWithIdentifier:@"second" withUserInfo:@{@"date" : [NSDate date]}];
+}
 
 -(void)viewDidLoad;{
   [super viewDidLoad];

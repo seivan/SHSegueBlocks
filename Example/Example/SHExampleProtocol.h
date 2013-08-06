@@ -10,4 +10,6 @@
 
 @protocol SHExampleProtocol <NSObject>
 @property(nonatomic,strong) NSString * name;
+
+-(IBAction)performSegue:(id)sender;
 @end
