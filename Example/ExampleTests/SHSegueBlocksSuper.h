@@ -9,6 +9,7 @@
 
 #import "KIF.h"
 #import "SHTestCaseAdditions.h"
+#import "SHObjectUserInfo.h"
 #import "SHSegueBlocks.h"
 
 
