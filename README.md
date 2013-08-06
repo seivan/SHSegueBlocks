@@ -1,5 +1,9 @@
 SHSegueBlocks
 ==========
+[![Build Status](https://travis-ci.org/seivan/SHSegueBlocks.png?branch=master)](https://travis-ci.org/seivan/SHSegueBlocks)
+[![Version](http://cocoapod-badges.herokuapp.com/v/SHSegueBlocks/badge.png)](http://cocoadocs.org/docsets/SHSegueBlocks)
+[![Platform](http://cocoapod-badges.herokuapp.com/p/SHSegueBlocks/badge.png)](http://cocoadocs.org/docsets/SHSegueBlocks)
+
 
 Overview
 --------
