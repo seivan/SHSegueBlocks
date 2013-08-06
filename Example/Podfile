@@ -3,8 +3,8 @@ pod 'SHObjectUserInfo', :git => "https://github.com/seivan/SHObjectUserInfo"
 pod 'SHSegueBlocks', :path => '../'
 
 
-#target :ExampleTests do
+target :ExampleTests do
   pod 'SHTestCaseAdditions', :git => "https://github.com/seivan/SHTestCaseAdditions"
   pod 'SHFastEnumerationProtocols', :git => "https://github.com/PodFactory/SHFastEnumerationProtocols"
   pod "KIF-next"
-#end
+end
