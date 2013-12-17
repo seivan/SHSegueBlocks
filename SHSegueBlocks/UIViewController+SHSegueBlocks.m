@@ -25,7 +25,7 @@
 -(instancetype)init; {
   self = [super init];
   if (self) {
-    self.mapBlocks      = [NSMapTable weakToWeakObjectsMapTable];
+    self.mapBlocks      = [NSMapTable strongToStrongObjectsMapTable];
 
 //    [self SH_memoryDebugger];
   }
@@ -94,6 +94,16 @@
   [self SH_performSegueWithIdentifier:theIdentifier andDestinationViewController:^(UIViewController * theDestinationViewController) {
     theDestinationViewController.SH_userInfo = [theUserInfo mutableCopy];
   }];
+}
+
+#pragma mark - Segue Observers
+-(void)SH_observeSegueWithIdentifier:(NSString *)theIdentifier
+             andPrepareForSegueBlock:(SHPrepareForSegue)theBlock; {
+  NSMutableDictionary * blocks = [self.mapBlocks objectForKey:self];
+  if(blocks == nil) blocks = @{}.mutableCopy;
+  if(theBlock) blocks[theIdentifier] = [theBlock copy];
+  [self.mapBlocks setObject:blocks forKey:self];
+
 }
 
 
