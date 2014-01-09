@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   name    = "SHSegueBlocks"
   url     = "https://github.com/seivan/#{name}"
   git_url = "#{url}.git"
-  version      = "1.2.1"
+  version      = "1.2.2"
   source_files = "#{name}/**/*.{h,m}"
 
   s.name         = name
@@ -33,5 +33,5 @@ Pod::Spec.new do |s|
 
   s.source_files = source_files
   s.requires_arc = true
-  s.dependency 'SHObjectUserInfo', '~> 1.1.0'
+  s.dependency 'SHObjectUserInfo', '~> 1.2.0'
 end
