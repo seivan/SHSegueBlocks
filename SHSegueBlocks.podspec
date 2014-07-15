@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   name    = "SHSegueBlocks"
   url     = "https://github.com/seivan/#{name}"
   git_url = "#{url}.git"
-  version      = "1.2.2"
+  version      = "1.2.3"
   source_files = "#{name}/**/*.{h,m}"
 
   s.name         = name
