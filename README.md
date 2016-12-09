@@ -1,4 +1,6 @@
-Deprecated, please use http://[RxCocoa](https://github.com/ReactiveX/RxSwift) 
+
+Deprecated, please use [RxCocoa](https://github.com/ReactiveX/RxSwift) 
+
 
 SHSegueBlocks
 ==========
